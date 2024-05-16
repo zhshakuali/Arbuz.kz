@@ -14,7 +14,7 @@
 		9FF945762BF5FAAA0067CC75 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF945752BF5FAAA0067CC75 /* HomeView.swift */; };
 		9FF945782BF5FAB50067CC75 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF945772BF5FAB50067CC75 /* CartView.swift */; };
 		9FF9457A2BF5FAC10067CC75 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF945792BF5FAC10067CC75 /* MainTabBarViewController.swift */; };
-		9FF9457D2BF66A9C0067CC75 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FF9457C2BF66A9C0067CC75 /* Contents.json */; };
+		9FF9457D2BF66A9C0067CC75 /* Products.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FF9457C2BF66A9C0067CC75 /* Products.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		9FF945752BF5FAAA0067CC75 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9FF945772BF5FAB50067CC75 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		9FF945792BF5FAC10067CC75 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
-		9FF9457C2BF66A9C0067CC75 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Contents.json; path = ../../../Contents.json; sourceTree = "<group>"; };
+		9FF9457C2BF66A9C0067CC75 /* Products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Products.json; path = ../../../Products.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +76,7 @@
 		9FF9457B2BF65E2F0067CC75 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9FF9457C2BF66A9C0067CC75 /* Contents.json */,
+				9FF9457C2BF66A9C0067CC75 /* Products.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -141,7 +141,7 @@
 			files = (
 				9FDCCFEA2BF5F8DF00DA4EF7 /* Assets.xcassets in Resources */,
 				9FDCCFED2BF5F8DF00DA4EF7 /* Base in Resources */,
-				9FF9457D2BF66A9C0067CC75 /* Contents.json in Resources */,
+				9FF9457D2BF66A9C0067CC75 /* Products.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
