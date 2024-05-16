@@ -21,7 +21,6 @@ class MainTabBarViewController: UITabBarController {
            
            viewControllers = [mainViewController, cartViewController]
            
-           // Установка цвета для активной вкладки
            tabBar.tintColor = .green
        }
 
