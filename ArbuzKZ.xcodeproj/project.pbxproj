@@ -23,6 +23,7 @@
 		D5A342492BF792C200E3D2F2 /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A342482BF792C200E3D2F2 /* ProductsService.swift */; };
 		D5A3424B2BF792CE00E3D2F2 /* ProductsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A3424A2BF792CE00E3D2F2 /* ProductsServiceProtocol.swift */; };
 		D5A3424E2BF7932E00E3D2F2 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A3424D2BF7932E00E3D2F2 /* Errors.swift */; };
+		D5F876952BF795AE00601B55 /* ProductCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F876942BF795AE00601B55 /* ProductCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		D5A342482BF792C200E3D2F2 /* ProductsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
 		D5A3424A2BF792CE00E3D2F2 /* ProductsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsServiceProtocol.swift; sourceTree = "<group>"; };
 		D5A3424D2BF7932E00E3D2F2 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		D5F876942BF795AE00601B55 /* ProductCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,8 @@
 		9FDCCFDF2BF5F8DD00DA4EF7 /* ArbuzKZ */ = {
 			isa = PBXGroup;
 			children = (
+				D5F876932BF7959C00601B55 /* CommonUI */,
+				D5F876922BF7959000601B55 /* Screens */,
 				D5A3424C2BF7932000E3D2F2 /* Errors */,
 				D5A3423F2BF7928500E3D2F2 /* Services */,
 				D5A3423C2BF7926B00E3D2F2 /* Extension */,
@@ -153,6 +157,21 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
+		D5F876922BF7959000601B55 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		D5F876932BF7959C00601B55 /* CommonUI */ = {
+			isa = PBXGroup;
+			children = (
+				D5F876942BF795AE00601B55 /* ProductCellView.swift */,
+			);
+			path = CommonUI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -224,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5F876952BF795AE00601B55 /* ProductCellView.swift in Sources */,
 				9FF945782BF5FAB50067CC75 /* CartView.swift in Sources */,
 				D5A3423B2BF7925700E3D2F2 /* ProductModel.swift in Sources */,
 				9FF945762BF5FAAA0067CC75 /* HomeView.swift in Sources */,
