@@ -15,6 +15,14 @@
 		9FF945762BF5FAAA0067CC75 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF945752BF5FAAA0067CC75 /* HomeView.swift */; };
 		9FF945782BF5FAB50067CC75 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF945772BF5FAB50067CC75 /* CartView.swift */; };
 		9FF9457A2BF5FAC10067CC75 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF945792BF5FAC10067CC75 /* MainTabBarViewController.swift */; };
+		D5A3423B2BF7925700E3D2F2 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A3423A2BF7925700E3D2F2 /* ProductModel.swift */; };
+		D5A3423E2BF7927300E3D2F2 /* Task+sleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A3423D2BF7927300E3D2F2 /* Task+sleep.swift */; };
+		D5A342432BF7929700E3D2F2 /* MockedNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A342422BF7929700E3D2F2 /* MockedNetworkService.swift */; };
+		D5A342452BF792A800E3D2F2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A342442BF792A800E3D2F2 /* NetworkService.swift */; };
+		D5A342472BF792B400E3D2F2 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A342462BF792B400E3D2F2 /* NetworkServiceProtocol.swift */; };
+		D5A342492BF792C200E3D2F2 /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A342482BF792C200E3D2F2 /* ProductsService.swift */; };
+		D5A3424B2BF792CE00E3D2F2 /* ProductsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A3424A2BF792CE00E3D2F2 /* ProductsServiceProtocol.swift */; };
+		D5A3424E2BF7932E00E3D2F2 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A3424D2BF7932E00E3D2F2 /* Errors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +36,14 @@
 		9FF945752BF5FAAA0067CC75 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9FF945772BF5FAB50067CC75 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		9FF945792BF5FAC10067CC75 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		D5A3423A2BF7925700E3D2F2 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		D5A3423D2BF7927300E3D2F2 /* Task+sleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+sleep.swift"; sourceTree = "<group>"; };
+		D5A342422BF7929700E3D2F2 /* MockedNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedNetworkService.swift; sourceTree = "<group>"; };
+		D5A342442BF792A800E3D2F2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		D5A342462BF792B400E3D2F2 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		D5A342482BF792C200E3D2F2 /* ProductsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
+		D5A3424A2BF792CE00E3D2F2 /* ProductsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsServiceProtocol.swift; sourceTree = "<group>"; };
+		D5A3424D2BF7932E00E3D2F2 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +76,10 @@
 		9FDCCFDF2BF5F8DD00DA4EF7 /* ArbuzKZ */ = {
 			isa = PBXGroup;
 			children = (
+				D5A3424C2BF7932000E3D2F2 /* Errors */,
+				D5A3423F2BF7928500E3D2F2 /* Services */,
+				D5A3423C2BF7926B00E3D2F2 /* Extension */,
+				D5A342392BF7924800E3D2F2 /* Entities */,
 				9FF9457E2BF6727D0067CC75 /* Mock */,
 				9FDCCFE02BF5F8DD00DA4EF7 /* AppDelegate.swift */,
 				9FDCCFE22BF5F8DD00DA4EF7 /* SceneDelegate.swift */,
@@ -79,6 +99,58 @@
 				9FEDA3CC2BF67446005BD612 /* Products.json */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		D5A342392BF7924800E3D2F2 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				D5A3423A2BF7925700E3D2F2 /* ProductModel.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		D5A3423C2BF7926B00E3D2F2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D5A3423D2BF7927300E3D2F2 /* Task+sleep.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D5A3423F2BF7928500E3D2F2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D5A342412BF7928E00E3D2F2 /* Network */,
+				D5A342402BF7928900E3D2F2 /* Products */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D5A342402BF7928900E3D2F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5A342482BF792C200E3D2F2 /* ProductsService.swift */,
+				D5A3424A2BF792CE00E3D2F2 /* ProductsServiceProtocol.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		D5A342412BF7928E00E3D2F2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D5A342422BF7929700E3D2F2 /* MockedNetworkService.swift */,
+				D5A342442BF792A800E3D2F2 /* NetworkService.swift */,
+				D5A342462BF792B400E3D2F2 /* NetworkServiceProtocol.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D5A3424C2BF7932000E3D2F2 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				D5A3424D2BF7932E00E3D2F2 /* Errors.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,10 +225,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FF945782BF5FAB50067CC75 /* CartView.swift in Sources */,
+				D5A3423B2BF7925700E3D2F2 /* ProductModel.swift in Sources */,
 				9FF945762BF5FAAA0067CC75 /* HomeView.swift in Sources */,
+				D5A342432BF7929700E3D2F2 /* MockedNetworkService.swift in Sources */,
+				D5A342472BF792B400E3D2F2 /* NetworkServiceProtocol.swift in Sources */,
+				D5A342452BF792A800E3D2F2 /* NetworkService.swift in Sources */,
 				9FF9457A2BF5FAC10067CC75 /* MainTabBarViewController.swift in Sources */,
+				D5A3424E2BF7932E00E3D2F2 /* Errors.swift in Sources */,
+				D5A3424B2BF792CE00E3D2F2 /* ProductsServiceProtocol.swift in Sources */,
+				D5A3423E2BF7927300E3D2F2 /* Task+sleep.swift in Sources */,
 				9FDCCFE12BF5F8DD00DA4EF7 /* AppDelegate.swift in Sources */,
 				9FDCCFE32BF5F8DD00DA4EF7 /* SceneDelegate.swift in Sources */,
+				D5A342492BF792C200E3D2F2 /* ProductsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
