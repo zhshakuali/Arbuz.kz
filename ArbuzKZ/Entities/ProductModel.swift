@@ -11,6 +11,10 @@ class ProductModel: Decodable {
     struct Measure: Decodable {
         let count: Double
         let prefix: String
+        
+        var formattedMeasure: String {
+            String(format: "%.1f %@", count, prefix)
+        }
     }
 
     let id: Int
