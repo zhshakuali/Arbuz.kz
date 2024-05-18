@@ -11,6 +11,7 @@ import SwiftUI
 class MainTabBarViewController: UITabBarController {
     
     let cartManager = CartManager()
+    let favoriteManager = FavoriteProductsManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +21,10 @@ class MainTabBarViewController: UITabBarController {
     }
     
     private func addViewControllers() {
-        let mainViewController = MainScreenViewController(cartManager: cartManager)
+        let mainViewController = MainScreenViewController(cartManager: cartManager, favoriteManager: favoriteManager)
         mainViewController.tabBarItem = UITabBarItem(title: "Главная", image: UIImage(systemName: "house"), tag: 0)
         
-        let cartViewController = BasketViewController(cartManager: cartManager)
+        let cartViewController = BasketViewController(cartManager: cartManager, favoriteManager: favoriteManager)
         cartViewController.tabBarItem = UITabBarItem(title: "Корзина", image: UIImage(systemName: "cart"), tag: 1)
         
         viewControllers = [mainViewController, cartViewController]

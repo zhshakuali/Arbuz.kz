@@ -10,17 +10,24 @@ import SwiftUI
 class MainScreenViewController: UIViewController {
     
     lazy var mainScreen: UIHostingController = {
-        let controller = UIHostingController(rootView: MainScreen(cartManager: cartManager) { product in
-            self.showProductDetailScreen(product)
-        })
+        let controller = UIHostingController(
+            rootView: MainScreen(
+                cartManager: cartManager,
+                favoriteManager: favoriteManager
+            ) { product in
+                self.showProductDetailScreen(product)
+            }
+        )
         
         return controller
     }()
     
     let cartManager: CartManager
+    let favoriteManager: FavoriteProductsManager
     
-    init(cartManager: CartManager) {
+    init(cartManager: CartManager, favoriteManager: FavoriteProductsManager) {
         self.cartManager = cartManager
+        self.favoriteManager = favoriteManager
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -49,11 +56,7 @@ class MainScreenViewController: UIViewController {
                 }
             )
             .environmentObject(cartManager)
-            .onDisappear(perform: {
-                self.mainScreen.rootView = MainScreen(cartManager: self.cartManager) { product in
-                    self.showProductDetailScreen(product)
-                }
-            })
+            .environmentObject(favoriteManager)
         )
         
         present(view, animated: true)
@@ -70,6 +73,7 @@ struct MainScreen: View {
     ]
     
     @ObservedObject var cartManager: CartManager
+    @ObservedObject var favoriteManager: FavoriteProductsManager
     
     let onTapProduct: (ProductModel) -> Void
     
@@ -77,7 +81,7 @@ struct MainScreen: View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.flexible(), alignment: .top), GridItem(.flexible(), alignment: .top)], content: {
                 ForEach(products) { product in
-                    CellView(cartManager: cartManager, product: product)
+                    CellView(cartManager: cartManager, favoriteManager: favoriteManager, product: product)
                         .onTapGesture {
                             onTapProduct(product)
                         }
@@ -89,7 +93,7 @@ struct MainScreen: View {
 }
 
 #Preview {
-    MainScreen(cartManager: CartManager()) { _ in
+    MainScreen(cartManager: CartManager(), favoriteManager: FavoriteProductsManager()) { _ in
         
     }
 }
