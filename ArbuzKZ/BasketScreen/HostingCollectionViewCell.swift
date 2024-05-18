@@ -9,27 +9,15 @@ import SwiftUI
 
 final class HostingCollectionViewCell: UICollectionViewCell {
     
-    private(set) var host: UIHostingController<ProductCellView>?
+    private(set) var host: UIHostingController<CellView>?
     
     func embed(in parent: UIViewController, withContent content: ProductModel, onClose: @escaping (Int) -> Void, onFavorite: @escaping (Int) -> Void, onTap: @escaping () -> Void) {
         if let host = self.host {
-            host.rootView = ProductCellView(
-                product: content,
-                isFavorite: false,
-                onClose: onClose,
-                onFavorite: onFavorite,
-                onTap: onTap
-            )
+            host.rootView = CellView(product: content, type: .cart)
             host.view.layoutIfNeeded()
         } else {
             let host = UIHostingController(
-                rootView: ProductCellView(
-                    product: content,
-                    isFavorite: false,
-                    onClose: onClose,
-                    onFavorite: onFavorite,
-                    onTap: onTap
-                )
+                rootView: CellView(product: content, type: .cart)
             )
             parent.addChild(host)
             host.didMove(toParent: parent)

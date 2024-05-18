@@ -58,18 +58,10 @@ struct MainScreen: View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.flexible(), alignment: .top), GridItem(.flexible(), alignment: .top)], content: {
                 ForEach(products) { product in
-                    ProductCellView(
-                        product: product,
-                        isFavorite: false,
-                        cellType: .vertical,
-                        onClose: { _ in },
-                        onFavorite: { _ in
-                            
+                    CellView(product: product)
+                        .onTapGesture {
+                            onTapProduct(product)
                         }
-                    )
-                    .onTapGesture {
-                        onTapProduct(product)
-                    }
                 }
             })
             .padding(.horizontal, 12)
