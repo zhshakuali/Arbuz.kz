@@ -36,6 +36,7 @@
 		D5B49D692BF8FBC900E36233 /* CellTotalPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B49D682BF8FBC900E36233 /* CellTotalPriceView.swift */; };
 		D5B49D6B2BF8FC3400E36233 /* CellImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B49D6A2BF8FC3400E36233 /* CellImageView.swift */; };
 		D5B49D6D2BF8FD5D00E36233 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B49D6C2BF8FD5D00E36233 /* CellView.swift */; };
+		D5E0C5942BF90E9D00EF88BD /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E0C5932BF90E9D00EF88BD /* CartManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		D5B49D682BF8FBC900E36233 /* CellTotalPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTotalPriceView.swift; sourceTree = "<group>"; };
 		D5B49D6A2BF8FC3400E36233 /* CellImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellImageView.swift; sourceTree = "<group>"; };
 		D5B49D6C2BF8FD5D00E36233 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		D5E0C5932BF90E9D00EF88BD /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 		D5A3423F2BF7928500E3D2F2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D5E0C5922BF90E5900EF88BD /* Cart */,
 				D5A342412BF7928E00E3D2F2 /* Network */,
 				D5A342402BF7928900E3D2F2 /* Products */,
 			);
@@ -229,6 +232,14 @@
 				D5B49D6C2BF8FD5D00E36233 /* CellView.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		D5E0C5922BF90E5900EF88BD /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				D5E0C5932BF90E9D00EF88BD /* CartManager.swift */,
+			);
+			path = Cart;
 			sourceTree = "<group>";
 		};
 		D5F876932BF7959C00601B55 /* CommonUI */ = {
@@ -330,6 +341,7 @@
 				D5B49D6D2BF8FD5D00E36233 /* CellView.swift in Sources */,
 				D5A3423E2BF7927300E3D2F2 /* Task+sleep.swift in Sources */,
 				D562A2922BF8670900341DF8 /* ProductDetailView.swift in Sources */,
+				D5E0C5942BF90E9D00EF88BD /* CartManager.swift in Sources */,
 				D59185F42BF89E0D00F1904E /* ProductButton.swift in Sources */,
 				D59185FC2BF8B8CA00F1904E /* ButtonVariants.swift in Sources */,
 				9FDCCFE12BF5F8DD00DA4EF7 /* AppDelegate.swift in Sources */,

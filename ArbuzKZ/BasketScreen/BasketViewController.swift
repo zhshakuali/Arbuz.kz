@@ -20,12 +20,30 @@ class BasketViewController: UIViewController {
     }()
     lazy var collectionView = CollectionView()
     var dataSource: UICollectionViewDiffableDataSource<Section, ProductModel>?
-    var items: [ProductModel] = [.mockProduct1, .mockProduct2]
+    var items: [ProductModel] {
+        cartManager.getProducts()
+    }
+    
+    let cartManager: CartManager
+    
+    init(cartManager: CartManager) {
+        self.cartManager = cartManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
         configureDataSource()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        applySnapshot()
     }
     
     private func setLayout() {
@@ -48,9 +66,10 @@ class BasketViewController: UIViewController {
             cell.embed(
                 in: self,
                 withContent: self.items[indexPath.row],
-                onClose: { id in
+                cartManager: cartManager,
+                onClose: {
                     if let indexPath = self.collectionView.indexPath(for: cell) {
-                        self.removeProduct(for: id)
+                        self.removeProduct(self.items[indexPath.row])
                     }
                 },
                 onFavorite: { id in
@@ -62,6 +81,9 @@ class BasketViewController: UIViewController {
                     if let indexPath = self.collectionView.indexPath(for: cell) {
                         self.showProductDetailView(self.items[indexPath.row])
                     }
+                },
+                onUpdate: {
+                    self.applySnapshot()
                 }
             )
             
@@ -79,9 +101,8 @@ class BasketViewController: UIViewController {
         addEmptyViewIfNeeded()
     }
     
-    private func removeProduct(for id: Int) {
-        items.removeAll(where: { $0.id == id })
-        addEmptyViewIfNeeded()
+    private func removeProduct(_ product: ProductModel) {
+        cartManager.removeProduct(product)
         applySnapshot()
     }
     

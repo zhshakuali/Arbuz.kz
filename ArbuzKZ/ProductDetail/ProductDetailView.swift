@@ -11,6 +11,8 @@ struct ProductDetailView: View {
 
     @State private var isFavorite = false
 
+    @EnvironmentObject var cartManager: CartManager
+    
     let product: ProductModel
     let onClose: () -> Void
 
@@ -45,9 +47,16 @@ struct ProductDetailView: View {
 
                     ProductDetailButton(
                         product: product,
-                        initialValue: 0,
-                        onRemoveProduct: {
+                        currentValue: Binding(get: {
+                            cartManager.count(for: product)
+                        }, set: { _ in
                             
+                        }),
+                        onIncrement: {
+                            cartManager.incrementProduct(product)
+                        },
+                        onDecrement: {
+                            cartManager.decrementProduct(product)
                         }
                     )
                 }

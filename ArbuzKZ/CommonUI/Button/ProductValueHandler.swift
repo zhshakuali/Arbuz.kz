@@ -48,9 +48,7 @@ class ProductValueHandler: ObservableObject {
     func decrement(_ onRemove: () -> Void) {
         guard currentValusMoreThanZero else { return }
         
-        if currentValueIsOne {
-            onRemove()
-        }
+        onRemove()
         currentValue -= productOnePiece
     }
     

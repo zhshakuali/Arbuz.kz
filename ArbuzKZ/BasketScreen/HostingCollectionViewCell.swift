@@ -11,13 +11,13 @@ final class HostingCollectionViewCell: UICollectionViewCell {
     
     private(set) var host: UIHostingController<CellView>?
     
-    func embed(in parent: UIViewController, withContent content: ProductModel, onClose: @escaping (Int) -> Void, onFavorite: @escaping (Int) -> Void, onTap: @escaping () -> Void) {
+    func embed(in parent: UIViewController, withContent content: ProductModel, cartManager: CartManager, onClose: @escaping () -> Void, onFavorite: @escaping (Int) -> Void, onTap: @escaping () -> Void, onUpdate: @escaping () -> Void) {
         if let host = self.host {
-            host.rootView = CellView(product: content, type: .cart)
+            host.rootView = CellView(cartManager: cartManager, product: content, type: .cart, onRemove: onClose, onUpdate: onUpdate)
             host.view.layoutIfNeeded()
         } else {
             let host = UIHostingController(
-                rootView: CellView(product: content, type: .cart)
+                rootView: CellView(cartManager: cartManager, product: content, type: .cart, onRemove: onClose, onUpdate: onUpdate)
             )
             parent.addChild(host)
             host.didMove(toParent: parent)
