@@ -52,7 +52,6 @@ struct ProductCellView: View {
             imageContent
             productInfo
         }
-        .frame(width: imageSize)
     }
     
     private var horizontalContent: some View {
@@ -92,9 +91,10 @@ struct ProductCellView: View {
         ZStack(alignment: .topTrailing) {
             Image(product.image)
                 .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: imageSize, height: imageSize)
+                .scaledToFit()
+                .clipped()
                 .clipShape(RoundedRectangle(cornerRadius: 8))
+            
             
             Button(action: {
                 onFavorite(product.id)

@@ -18,6 +18,7 @@
 		D50D16C12BF868E900576777 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50D16C02BF868E900576777 /* BasketViewController.swift */; };
 		D50D16C62BF880BD00576777 /* EmptyBasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50D16C52BF880BD00576777 /* EmptyBasketView.swift */; };
 		D562A2922BF8670900341DF8 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D562A2912BF8670900341DF8 /* ProductDetailView.swift */; };
+		D59185F22BF8861C00F1904E /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59185F12BF8861C00F1904E /* MainScreen.swift */; };
 		D5A3423B2BF7925700E3D2F2 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A3423A2BF7925700E3D2F2 /* ProductModel.swift */; };
 		D5A3423E2BF7927300E3D2F2 /* Task+sleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A3423D2BF7927300E3D2F2 /* Task+sleep.swift */; };
 		D5A342432BF7929700E3D2F2 /* MockedNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A342422BF7929700E3D2F2 /* MockedNetworkService.swift */; };
@@ -43,6 +44,7 @@
 		D50D16C02BF868E900576777 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		D50D16C52BF880BD00576777 /* EmptyBasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyBasketView.swift; sourceTree = "<group>"; };
 		D562A2912BF8670900341DF8 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		D59185F12BF8861C00F1904E /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		D5A3423A2BF7925700E3D2F2 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		D5A3423D2BF7927300E3D2F2 /* Task+sleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+sleep.swift"; sourceTree = "<group>"; };
 		D5A342422BF7929700E3D2F2 /* MockedNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedNetworkService.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		9FDCCFDF2BF5F8DD00DA4EF7 /* ArbuzKZ */ = {
 			isa = PBXGroup;
 			children = (
+				D59185F02BF8860F00F1904E /* MainScreen */,
 				D50D16BF2BF868D400576777 /* BasketScreen */,
 				D562A2902BF866FA00341DF8 /* ProductDetail */,
 				D5F876932BF7959C00601B55 /* CommonUI */,
@@ -128,6 +131,14 @@
 				D562A2912BF8670900341DF8 /* ProductDetailView.swift */,
 			);
 			path = ProductDetail;
+			sourceTree = "<group>";
+		};
+		D59185F02BF8860F00F1904E /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D59185F12BF8861C00F1904E /* MainScreen.swift */,
+			);
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
 		D5A342392BF7924800E3D2F2 /* Entities */ = {
@@ -274,6 +285,7 @@
 				9FF945762BF5FAAA0067CC75 /* HomeView.swift in Sources */,
 				D5A342432BF7929700E3D2F2 /* MockedNetworkService.swift in Sources */,
 				D5A342472BF792B400E3D2F2 /* NetworkServiceProtocol.swift in Sources */,
+				D59185F22BF8861C00F1904E /* MainScreen.swift in Sources */,
 				D5A342452BF792A800E3D2F2 /* NetworkService.swift in Sources */,
 				D50D16C62BF880BD00576777 /* EmptyBasketView.swift in Sources */,
 				9FF9457A2BF5FAC10067CC75 /* MainTabBarViewController.swift in Sources */,
