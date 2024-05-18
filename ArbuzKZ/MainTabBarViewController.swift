@@ -16,7 +16,7 @@ class MainTabBarViewController: UITabBarController {
            let mainViewController = UIHostingController(rootView: MainView())
            mainViewController.tabBarItem = UITabBarItem(title: "Главная", image: UIImage(systemName: "house"), tag: 0)
            
-           let cartViewController = UIHostingController(rootView: HomeView())
+           let cartViewController = BasketViewController()
            cartViewController.tabBarItem = UITabBarItem(title: "Корзина", image: UIImage(systemName: "cart"), tag: 1)
            
            viewControllers = [mainViewController, cartViewController]

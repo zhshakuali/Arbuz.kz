@@ -20,10 +20,22 @@ struct ProductCellView: View {
     
     let product: ProductModel
     let cellType: CellType
+    let isFavorite: Bool
+    let onClose: (Int) -> Void
+    let onFavorite: (Int) -> Void
     
-    init(product: ProductModel, cellType: CellType = .horizontal) {
+    init(
+        product: ProductModel,
+        isFavorite: Bool,
+        cellType: CellType = .horizontal,
+        onClose: @escaping (Int) -> Void,
+        onFavorite: @escaping (Int) -> Void
+    ) {
         self.product = product
         self.cellType = cellType
+        self.isFavorite = isFavorite
+        self.onClose = onClose
+        self.onFavorite = onFavorite
     }
     
     var body: some View {
@@ -54,7 +66,7 @@ struct ProductCellView: View {
                     Spacer(minLength: 20)
                     
                     Button(action: {
-                        // TODO: Remove from basket
+                        onClose(product.id)
                     }, label: {
                         Image(systemName: "xmark")
                     })
@@ -85,9 +97,9 @@ struct ProductCellView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 8))
             
             Button(action: {
-                // TODO: Add into/Remove from favorites
+                onFavorite(product.id)
             }, label: {
-                Image(systemName: "heart")
+                Image(systemName: isFavorite ? "heart.fill" : "heart")
             })
             .padding(.top, 6)
             .padding(.trailing, 4)
@@ -114,7 +126,14 @@ struct ProductCellView: View {
 
 #Preview {
     ProductCellView(
-        product: .mockProduct1
+        product: .mockProduct1,
+        isFavorite: false,
+        onClose: { _ in
+            
+        },
+        onFavorite: { _ in
+            
+        }
     )
     .padding()
 }
