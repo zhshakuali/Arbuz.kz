@@ -41,9 +41,15 @@ struct ProductDetailView: View {
                         Text(product.description)
                     }
 
-                    Spacer(minLength: 0).frame(height: 40)
+                    Spacer(minLength: 0).frame(height: 20)
 
-                    // TODO: Add button
+                    ProductDetailButton(
+                        product: product,
+                        initialValue: 0,
+                        onRemoveProduct: {
+                            
+                        }
+                    )
                 }
                 .padding(.horizontal, 12)
             }
