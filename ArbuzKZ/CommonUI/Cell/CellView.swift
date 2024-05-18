@@ -14,12 +14,19 @@ struct CellView: View {
         case cart
     }
     
+    @ObservedObject var cartManager: CartManager
+    
     let product: ProductModel
     let type: CellType
+    let onRemove: () -> Void
+    let onUpdate: () -> Void
     
-    init(product: ProductModel = .mockProduct1, type: CellType = .base) {
+    init(cartManager: CartManager, product: ProductModel = .mockProduct1, type: CellType = .base, onRemove: @escaping () -> Void = {}, onUpdate: @escaping () -> Void = {}) {
+        self.cartManager = cartManager
         self.product = product
         self.type = type
+        self.onRemove = onRemove
+        self.onUpdate = onUpdate
     }
     
     var body: some View {
@@ -31,9 +38,17 @@ struct CellView: View {
                     productInfo
                     DefaultButton(
                         product: product,
-                        initialValue: 0,
-                        onRemoveProduct: {
+                        currentValue: Binding(get: {
+                            cartManager.count(for: product)
+                        }, set: { _ in
                             
+                        }),
+                        onIncrement: {
+                            cartManager.incrementProduct(product)
+                        },
+                        onDecrement: {
+                            cartManager.decrementProduct(product)
+                            onUpdate()
                         }
                     )
                 }
@@ -49,7 +64,7 @@ struct CellView: View {
                             Spacer(minLength: 20)
                             
                             Button(action: {
-                                
+                                onRemove()
                             }, label: {
                                 Image(systemName: "xmark")
                             })
@@ -61,9 +76,17 @@ struct CellView: View {
                         HStack {
                             BasketButton(
                                 product: product,
-                                initialValue: 0,
-                                onRemoveProduct: {
+                                currentValue: Binding(get: {
+                                    cartManager.count(for: product)
+                                }, set: { _ in
                                     
+                                }),
+                                onIncrement: {
+                                    cartManager.incrementProduct(product)
+                                },
+                                onDecrement: {
+                                    cartManager.decrementProduct(product)
+                                    onUpdate()
                                 }
                             )
                             

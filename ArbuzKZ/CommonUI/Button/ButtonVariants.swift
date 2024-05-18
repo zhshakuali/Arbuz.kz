@@ -16,12 +16,16 @@ struct BasketButton: View {
     }
     
     let product: ProductModel
-    let onRemoveProduct: () -> Void
+    @Binding var currentValue: Double
+    let onIncrement: () -> Void
+    let onDecrement: () -> Void
     
-    init(product: ProductModel, initialValue: Double, onRemoveProduct: @escaping () -> Void) {
+    init(product: ProductModel, currentValue: Binding<Double>, onIncrement: @escaping () -> Void, onDecrement: @escaping () -> Void) {
         self.product = product
-        self._valueHandler = StateObject(wrappedValue: ProductValueHandler(currentValue: initialValue, product: product))
-        self.onRemoveProduct = onRemoveProduct
+        self._valueHandler = StateObject(wrappedValue: ProductValueHandler(currentValue: currentValue.wrappedValue, product: product))
+        self._currentValue = currentValue
+        self.onIncrement = onIncrement
+        self.onDecrement = onDecrement
     }
     
     var body: some View {
@@ -31,7 +35,7 @@ struct BasketButton: View {
                 accentColor: .primary,
                 action: {
                     valueHandler.decrement {
-                        onRemoveProduct()
+                        onDecrement()
                     }
                 }
             ),
@@ -41,6 +45,7 @@ struct BasketButton: View {
                 accentColor: .primary,
                 action: {
                     valueHandler.increment()
+                    onIncrement()
                 }
             ),
             content: {
@@ -56,6 +61,9 @@ struct BasketButton: View {
         .background(Color.gray)
         .clipped()
         .clipShape(RoundedRectangle(cornerRadius: 18))
+        .onChange(of: currentValue) {
+            valueHandler.currentValue = $0
+        }
     }
 }
 
@@ -63,12 +71,16 @@ struct DefaultButton: View {
     @StateObject var valueHandler: ProductValueHandler
     
     let product: ProductModel
-    let onRemoveProduct: () -> Void
+    @Binding var currentValue: Double
+    let onIncrement: () -> Void
+    let onDecrement: () -> Void
     
-    init(product: ProductModel, initialValue: Double, onRemoveProduct: @escaping () -> Void) {
+    init(product: ProductModel, currentValue: Binding<Double>, onIncrement: @escaping () -> Void, onDecrement: @escaping () -> Void) {
         self.product = product
-        self._valueHandler = StateObject(wrappedValue: ProductValueHandler(currentValue: initialValue, product: product))
-        self.onRemoveProduct = onRemoveProduct
+        self._valueHandler = StateObject(wrappedValue: ProductValueHandler(currentValue: currentValue.wrappedValue, product: product))
+        self._currentValue = currentValue
+        self.onIncrement = onIncrement
+        self.onDecrement = onDecrement
     }
     
     var body: some View {
@@ -79,7 +91,7 @@ struct DefaultButton: View {
                 accentColor: valueHandler.currentValusMoreThanZero ? .white : .green,
                 action: {
                     valueHandler.decrement {
-                        onRemoveProduct()
+                        onDecrement()
                     }
                 }
             ),
@@ -89,6 +101,7 @@ struct DefaultButton: View {
                 accentColor: valueHandler.currentValusMoreThanZero ? .white : .green,
                 action: {
                     valueHandler.increment()
+                    onIncrement()
                 }
             ),
             content: {
@@ -104,6 +117,9 @@ struct DefaultButton: View {
         .background(valueHandler.currentValusMoreThanZero ? Color.green : Color.gray)
         .clipped()
         .clipShape(RoundedRectangle(cornerRadius: 16))
+        .onChange(of: currentValue) {
+            valueHandler.currentValue = $0
+        }
     }
 }
 
@@ -111,12 +127,16 @@ struct ProductDetailButton: View {
     @StateObject var valueHandler: ProductValueHandler
     
     let product: ProductModel
-    let onRemoveProduct: () -> Void
+    @Binding var currentValue: Double
+    let onIncrement: () -> Void
+    let onDecrement: () -> Void
     
-    init(product: ProductModel, initialValue: Double, onRemoveProduct: @escaping () -> Void) {
+    init(product: ProductModel, currentValue: Binding<Double>, onIncrement: @escaping () -> Void, onDecrement: @escaping () -> Void) {
         self.product = product
-        self._valueHandler = StateObject(wrappedValue: ProductValueHandler(currentValue: initialValue, product: product))
-        self.onRemoveProduct = onRemoveProduct
+        self._valueHandler = StateObject(wrappedValue: ProductValueHandler(currentValue: currentValue.wrappedValue, product: product))
+        self._currentValue = currentValue
+        self.onIncrement = onIncrement
+        self.onDecrement = onDecrement
     }
     
     var body: some View {
@@ -127,7 +147,7 @@ struct ProductDetailButton: View {
                 accentColor: .white,
                 action: {
                     valueHandler.decrement {
-                        onRemoveProduct()
+                        onDecrement()
                     }
                 }
             ),
@@ -137,6 +157,7 @@ struct ProductDetailButton: View {
                 accentColor: .white,
                 action: {
                     valueHandler.increment()
+                    onIncrement()
                 }
             ),
             content: {
@@ -152,6 +173,9 @@ struct ProductDetailButton: View {
         .background(Color.green)
         .clipped()
         .clipShape(RoundedRectangle(cornerRadius: 12))
+        .onChange(of: currentValue) {
+            valueHandler.currentValue = $0
+        }
     }
 }
 
@@ -159,24 +183,33 @@ struct ProductDetailButton: View {
     VStack(spacing: 40) {
         BasketButton(
             product: .mockProduct1,
-            initialValue: 2,
-            onRemoveProduct: {
+            currentValue: .constant(0),
+            onIncrement: {
+                
+            },
+            onDecrement: {
                 
             }
         )
         
         DefaultButton(
             product: .mockProduct3,
-            initialValue: 1,
-            onRemoveProduct: {
+            currentValue: .constant(0),
+            onIncrement: {
+                
+            },
+            onDecrement: {
                 
             }
         )
         
         ProductDetailButton(
             product: .mockProduct4,
-            initialValue: 900,
-            onRemoveProduct: {
+            currentValue: .constant(0),
+            onIncrement: {
+                
+            },
+            onDecrement: {
                 
             }
         )
