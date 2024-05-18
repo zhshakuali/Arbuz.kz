@@ -56,7 +56,9 @@ class BasketViewController: UIViewController {
                     }
                 )
                 .onTapGesture {
-                    self.showProductDetailView(self.items[indexPath.row])
+                    if let indexPath = self.collectionView.indexPath(for: cell) {
+                        self.showProductDetailView(self.items[indexPath.row])
+                    }
                 }
             }
             

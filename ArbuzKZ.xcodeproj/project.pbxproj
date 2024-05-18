@@ -19,6 +19,10 @@
 		D50D16C62BF880BD00576777 /* EmptyBasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50D16C52BF880BD00576777 /* EmptyBasketView.swift */; };
 		D562A2922BF8670900341DF8 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D562A2912BF8670900341DF8 /* ProductDetailView.swift */; };
 		D59185F22BF8861C00F1904E /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59185F12BF8861C00F1904E /* MainScreen.swift */; };
+		D59185F42BF89E0D00F1904E /* ProductButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59185F32BF89E0D00F1904E /* ProductButton.swift */; };
+		D59185FA2BF8B3F700F1904E /* ButtonContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59185F92BF8B3F700F1904E /* ButtonContent.swift */; };
+		D59185FC2BF8B8CA00F1904E /* ButtonVariants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59185FB2BF8B8CA00F1904E /* ButtonVariants.swift */; };
+		D59185FE2BF8BF7800F1904E /* ProductValueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59185FD2BF8BF7800F1904E /* ProductValueHandler.swift */; };
 		D5A3423B2BF7925700E3D2F2 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A3423A2BF7925700E3D2F2 /* ProductModel.swift */; };
 		D5A3423E2BF7927300E3D2F2 /* Task+sleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A3423D2BF7927300E3D2F2 /* Task+sleep.swift */; };
 		D5A342432BF7929700E3D2F2 /* MockedNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A342422BF7929700E3D2F2 /* MockedNetworkService.swift */; };
@@ -45,6 +49,10 @@
 		D50D16C52BF880BD00576777 /* EmptyBasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyBasketView.swift; sourceTree = "<group>"; };
 		D562A2912BF8670900341DF8 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		D59185F12BF8861C00F1904E /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		D59185F32BF89E0D00F1904E /* ProductButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductButton.swift; sourceTree = "<group>"; };
+		D59185F92BF8B3F700F1904E /* ButtonContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonContent.swift; sourceTree = "<group>"; };
+		D59185FB2BF8B8CA00F1904E /* ButtonVariants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonVariants.swift; sourceTree = "<group>"; };
+		D59185FD2BF8BF7800F1904E /* ProductValueHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductValueHandler.swift; sourceTree = "<group>"; };
 		D5A3423A2BF7925700E3D2F2 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		D5A3423D2BF7927300E3D2F2 /* Task+sleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+sleep.swift"; sourceTree = "<group>"; };
 		D5A342422BF7929700E3D2F2 /* MockedNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedNetworkService.swift; sourceTree = "<group>"; };
@@ -141,6 +149,17 @@
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
+		D59185F52BF89EE800F1904E /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				D59185F32BF89E0D00F1904E /* ProductButton.swift */,
+				D59185F92BF8B3F700F1904E /* ButtonContent.swift */,
+				D59185FB2BF8B8CA00F1904E /* ButtonVariants.swift */,
+				D59185FD2BF8BF7800F1904E /* ProductValueHandler.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 		D5A342392BF7924800E3D2F2 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +222,7 @@
 		D5F876932BF7959C00601B55 /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				D59185F52BF89EE800F1904E /* Button */,
 				D5F876942BF795AE00601B55 /* ProductCellView.swift */,
 			);
 			path = CommonUI;
@@ -283,6 +303,7 @@
 				9FF945782BF5FAB50067CC75 /* CartView.swift in Sources */,
 				D5A3423B2BF7925700E3D2F2 /* ProductModel.swift in Sources */,
 				9FF945762BF5FAAA0067CC75 /* HomeView.swift in Sources */,
+				D59185FE2BF8BF7800F1904E /* ProductValueHandler.swift in Sources */,
 				D5A342432BF7929700E3D2F2 /* MockedNetworkService.swift in Sources */,
 				D5A342472BF792B400E3D2F2 /* NetworkServiceProtocol.swift in Sources */,
 				D59185F22BF8861C00F1904E /* MainScreen.swift in Sources */,
@@ -293,8 +314,11 @@
 				D5A3424B2BF792CE00E3D2F2 /* ProductsServiceProtocol.swift in Sources */,
 				D5A3423E2BF7927300E3D2F2 /* Task+sleep.swift in Sources */,
 				D562A2922BF8670900341DF8 /* ProductDetailView.swift in Sources */,
+				D59185F42BF89E0D00F1904E /* ProductButton.swift in Sources */,
+				D59185FC2BF8B8CA00F1904E /* ButtonVariants.swift in Sources */,
 				9FDCCFE12BF5F8DD00DA4EF7 /* AppDelegate.swift in Sources */,
 				9FDCCFE32BF5F8DD00DA4EF7 /* SceneDelegate.swift in Sources */,
+				D59185FA2BF8B3F700F1904E /* ButtonContent.swift in Sources */,
 				D50D16C12BF868E900576777 /* BasketViewController.swift in Sources */,
 				D5A342492BF792C200E3D2F2 /* ProductsService.swift in Sources */,
 			);

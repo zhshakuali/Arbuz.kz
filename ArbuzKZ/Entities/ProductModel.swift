@@ -23,6 +23,7 @@ class ProductModel: Identifiable, Hashable, Equatable, Decodable {
     let measure: Measure
     let price: Double
     let prefix: String
+    let balance: Double
     let description: String
     let image: String
     
@@ -33,6 +34,7 @@ class ProductModel: Identifiable, Hashable, Equatable, Decodable {
         measure: Measure,
         price: Double,
         prefix: String,
+        balance: Double,
         description: String,
         image: String
     ) {
@@ -42,6 +44,7 @@ class ProductModel: Identifiable, Hashable, Equatable, Decodable {
         self.measure = measure
         self.price = price
         self.prefix = prefix
+        self.balance = balance
         self.description = description
         self.image = image
     }
@@ -68,6 +71,7 @@ extension ProductModel {
             measure: .init(count: 1, prefix: "кг"),
             price: 890,
             prefix: "т/кг",
+            balance: 5,
             description: "Бананы десертные обладают плотной, сладкой мякотью и освежающим ароматом с травянистыми нотками. Цвет бананов может варьироваться от салатного до желтого цвета. Спелые и сладкие бананы не нуждаются в представлении: этот тропический фрукт - один из самых популярных в Казахстане! Когда-то за бананами выстраивались очереди, а сейчас они есть в каждом доме. Бананы вкусные, сытные, их легко взять В дорогу.",
             image: "a1"
         )
@@ -81,6 +85,7 @@ extension ProductModel {
             measure: .init(count: 0.5, prefix: "кг"),
             price: 8350,
             prefix: "т/кг",
+            balance: 3.5,
             description: "Голубика улучшает аппетит, укрепляет стенки сосудов и считается отличным противовоспалительным, желчегонным и мочегонным средством. Также голубика препятствует проявлению склероза, защищает от радиоактивного излучения, снижает уровень сахара в крови и помогает при желудочных и сердечных заболеваниях.",
             image: "a2"
         )
@@ -94,6 +99,7 @@ extension ProductModel {
             measure: .init(count: 1, prefix: "шт"),
             price: 8350,
             prefix: "т/шт",
+            balance: 3,
             description: "Лимон является основой для приготовления лимонада и ликера Лимончелло. Из лимона варят мармелады и джемы, его часто сочетают с имбирём и перцем чили. Лимонный сок основа салатных заправок и домашнего майонеза. Лимон является начинкой для пирогов и ароматной добавкой в сдобную выпечку.",
             image: "a3"
         )
@@ -107,6 +113,7 @@ extension ProductModel {
             measure: .init(count: 300, prefix: "г"),
             price: 1000,
             prefix: "т/шт",
+            balance: 3000,
             description: "Сметана «Простоквашино» - натуральный продукт, приготовленный по традиционным рецептам из свежих заквасок и сливок. Продукт используется как добавка к пельменям и вареникам, салатная заправка или самостоятельный соус. Хозяйки часто используют сметану в составе кондитерских кремов, а также добавляют в подливы для мясных, грибных и овощных блюд. Сметана «Простоквашино» обладает 5 гарантиями качества: ﻿﻿﻿Ежедневная забота и здоровье коров. ﻿﻿﻿Проверка по 80 параметрам качества. ﻿﻿﻿Перевозка и хранение в правильных условиях. ﻿﻿﻿Только сливки и закваска в составе. ﻿﻿﻿Вкус настоящей сметаны. Состав: Сливки нормализованные, заквасочные микроорганизмы.",
             image: "b1"
         )

@@ -5,6 +5,7 @@
         "title": "Бананы",
         "price": 890,
         "prefix": "т/кг",
+        "balance": 5,
         "measure": {
             "count": 1,
             "prefix": "кг"
@@ -18,6 +19,7 @@
         "title": "Голубика",
         "price": 8350,
         "prefix": "т/шт",
+        "balance": 3.5,
         "measure": {
             "count": 0.5,
             "prefix": "кг"
@@ -31,6 +33,7 @@
         "title": "Лимон Аргентина",
         "price": 285,
         "prefix": "т/шт",
+        "balance": 3,
         "measure": {
             "count": 1,
             "prefix": "шт"
@@ -44,6 +47,7 @@
         "title": "Виноград зеленый",
         "price": 4445,
         "prefix": "т/кг",
+        "balance": 7,
         "measure": {
             "count": 1,
             "prefix": "кг"
@@ -57,6 +61,7 @@
         "title": "Сметана 15%",
         "price": 1000,
         "prefix": "т/шт",
+        "balance": 3000,
         "measure": {
             "count": 300,
             "prefix": "г"
@@ -70,6 +75,7 @@
         "title": "Молоко Амиран живое 3,2%",
         "price": 720,
         "prefix": "т/шт",
+        "balance": 8,
         "measure": {
             "count": 0.8,
             "prefix": "л"
@@ -83,6 +89,7 @@
         "title": "Коктейль Растишка молочный Бабл-Гам 2%",
         "price": 445,
         "prefix": "т/шт",
+        "balance": 840,
         "measure": {
             "count": 210,
             "prefix": "г"
@@ -96,6 +103,7 @@
         "title": "Напиток Alpro растительный кокосовый без сахара",
         "price": 2480,
         "prefix": "т/шт",
+        "balance": 6,
         "measure": {
             "count": 1,
             "prefix": "л"
@@ -109,6 +117,7 @@
         "title": "Кофе Lavazza Crema E Gusto Молотый",
         "price": 2108,
         "prefix": "т/шт",
+        "balance": 750,
         "measure": {
             "count": 250,
             "prefix": "г"
@@ -122,6 +131,7 @@
         "title": "Чай Greenfield English Edition черный",
         "price": 2890,
         "prefix": "т/шт",
+        "balance": 800,
         "measure": {
             "count": 100,
             "prefix": "пакетиков"
@@ -135,6 +145,7 @@
         "title": "Чай Floris ягоды шиповника",
         "price": 2955,
         "prefix": "т/шт",
+        "balance": 560,
         "measure": {
             "count": 140,
             "prefix": "г"
@@ -148,6 +159,7 @@
         "title": "Гранатовый Сок Arbuz Select",
         "price": 2170,
         "prefix": "т/шт",
+        "balance": 5.25,
         "measure": {
             "count": 0.75,
             "prefix": "л"
@@ -161,6 +173,7 @@
         "title": "Мармелад Bitey фруктово-ягодный черная смородина",
         "price": 1080,
         "prefix": "т/шт",
+        "balance": 120,
         "measure": {
             "count": 20,
             "prefix": "г"
@@ -174,6 +187,7 @@
         "title": "Пастила Nut Vinograd ассорти ананас лимон смородина черника без сахара",
         "price": 1305,
         "prefix": "т/шт",
+        "balance": 800,
         "measure": {
             "count": 200,
             "prefix": "г"
@@ -187,6 +201,7 @@
         "title": "Набор конфет Ferrero Rocher",
         "price": 3840,
         "prefix": "т/шт",
+        "balance": 1600,
         "measure": {
             "count": 200,
             "prefix": "г"
@@ -200,6 +215,7 @@
         "title": "Конфеты Raffaello махаббат",
         "price": 2140,
         "prefix": "т/шт",
+        "balance": 750,
         "measure": {
             "count": 150,
             "prefix": "г"
@@ -213,6 +229,7 @@
         "title": "Плюшка Вкус Хлеба",
         "price": 600,
         "prefix": "т/шт",
+        "balance": 1320,
         "measure": {
             "count": 330,
             "prefix": "г"
@@ -226,6 +243,7 @@
         "title": "Донат Mirel шоколад, замороженный",
         "price": 490,
         "prefix": "т/шт",
+        "balance": 330,
         "measure": {
             "count": 55,
             "prefix": "г"
@@ -239,6 +257,7 @@
         "title": "Рулет с маком Беккер",
         "price": 3685,
         "prefix": "т/кг",
+        "balance": 3,
         "measure": {
             "count": 1,
             "prefix": "кг"
@@ -252,6 +271,7 @@
         "title": "Симит Вкус хлеба",
         "price": 455,
         "prefix": "т/шт",
+        "balance": 450,
         "measure": {
             "count": 150,
             "prefix": "г"

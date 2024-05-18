@@ -51,6 +51,13 @@ struct ProductCellView: View {
         VStack {
             imageContent
             productInfo
+            DefaultButton(
+                product: product,
+                initialValue: 0,
+                onRemoveProduct: {
+                    onClose(product.id)
+                }
+            )
         }
     }
     
@@ -75,7 +82,13 @@ struct ProductCellView: View {
                 Spacer(minLength: 0)
                 
                 HStack {
-                    // TODO: Add button here
+                    BasketButton(
+                        product: product,
+                        initialValue: 0,
+                        onRemoveProduct: {
+                            onClose(product.id)
+                        }
+                    )
                     
                     Spacer(minLength: 0)
                     
