@@ -15,14 +15,23 @@ struct CellView: View {
     }
     
     @ObservedObject var cartManager: CartManager
+    @ObservedObject var favoriteManager: FavoriteProductsManager
     
     let product: ProductModel
     let type: CellType
     let onRemove: () -> Void
     let onUpdate: () -> Void
     
-    init(cartManager: CartManager, product: ProductModel = .mockProduct1, type: CellType = .base, onRemove: @escaping () -> Void = {}, onUpdate: @escaping () -> Void = {}) {
+    init(
+        cartManager: CartManager,
+        favoriteManager: FavoriteProductsManager,
+        product: ProductModel = .mockProduct1,
+        type: CellType = .base,
+        onRemove: @escaping () -> Void = {},
+        onUpdate: @escaping () -> Void = {}
+    ) {
         self.cartManager = cartManager
+        self.favoriteManager = favoriteManager
         self.product = product
         self.type = type
         self.onRemove = onRemove
@@ -101,7 +110,21 @@ struct CellView: View {
     }
     
     var imageContent: some View {
-        CellImageView(image: product.image)
+        ZStack(alignment: .topTrailing) {
+            CellImageView(image: product.image)
+            Button {
+                favoriteManager.updateProductID(product.id)
+            } label: {
+                Image(
+                    systemName: favoriteManager.isFavorite(product.id)
+                    ? "heart.fill"
+                    : "heart"
+                )
+            }
+            .accentColor(.red)
+            .padding(.top, 8)
+            .padding(.trailing, 8)
+        }
     }
     
     var productInfo: some View {

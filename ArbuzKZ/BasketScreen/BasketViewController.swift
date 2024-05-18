@@ -25,9 +25,11 @@ class BasketViewController: UIViewController {
     }
     
     let cartManager: CartManager
+    let favoriteManager: FavoriteProductsManager
     
-    init(cartManager: CartManager) {
+    init(cartManager: CartManager, favoriteManager: FavoriteProductsManager) {
         self.cartManager = cartManager
+        self.favoriteManager = favoriteManager
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -67,6 +69,7 @@ class BasketViewController: UIViewController {
                 in: self,
                 withContent: self.items[indexPath.row],
                 cartManager: cartManager,
+                favoriteManager: favoriteManager,
                 onClose: {
                     if let indexPath = self.collectionView.indexPath(for: cell) {
                         self.removeProduct(self.items[indexPath.row])

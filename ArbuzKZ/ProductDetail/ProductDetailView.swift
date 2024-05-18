@@ -12,6 +12,7 @@ struct ProductDetailView: View {
     @State private var isFavorite = false
 
     @EnvironmentObject var cartManager: CartManager
+    @EnvironmentObject var favoriteManager: FavoriteProductsManager
     
     let product: ProductModel
     let onClose: () -> Void
@@ -75,16 +76,13 @@ struct ProductDetailView: View {
 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
-                        isFavorite.toggle()
+                        favoriteManager.updateProductID(product.id)
                     }, label: {
-                        Image(systemName: isFavorite ? "heart.fill" : "heart")
-                            .accentColor(.black)
+                        Image(systemName: favoriteManager.isFavorite(product.id) ? "heart.fill" : "heart")
+                            .accentColor(.red)
                             .frame(width: 24, height: 24)
                     })
                 }
-            }
-            .onChange(of: isFavorite) { value in
-                // TODO: Add to/Remote from favorite products
             }
         }
     }
