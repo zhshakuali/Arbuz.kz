@@ -33,34 +33,37 @@ class BasketViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.edgesToSuperview()
         collectionView.rootVC = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.register(
+            HostingCollectionViewCell.self,
+            forCellWithReuseIdentifier: "Cell"
+        )
     }
     
     private func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource(
             collectionView: collectionView
         ) { [weak self] collectionView, indexPath, itemIdentifier in
-            guard let self else { return UICollectionViewCell() }
+            guard let self, let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? HostingCollectionViewCell else { return UICollectionViewCell() }
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-            
-            cell.contentConfiguration = UIHostingConfiguration {
-                ProductCellView(
-                    product: self.items[indexPath.row],
-                    isFavorite: false,
-                    onClose: { id in
+            cell.embed(
+                in: self,
+                withContent: self.items[indexPath.row],
+                onClose: { id in
+                    if let indexPath = self.collectionView.indexPath(for: cell) {
                         self.removeProduct(for: id)
-                    },
-                    onFavorite: { id in
-                        self.changeIsFavoriteState(for: id)
                     }
-                )
-                .onTapGesture {
+                },
+                onFavorite: { id in
+                    if let indexPath = self.collectionView.indexPath(for: cell) {
+                        
+                    }
+                },
+                onTap: {
                     if let indexPath = self.collectionView.indexPath(for: cell) {
                         self.showProductDetailView(self.items[indexPath.row])
                     }
                 }
-            }
+            )
             
             return cell
         }

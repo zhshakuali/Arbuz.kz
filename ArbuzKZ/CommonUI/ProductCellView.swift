@@ -23,28 +23,34 @@ struct ProductCellView: View {
     let isFavorite: Bool
     let onClose: (Int) -> Void
     let onFavorite: (Int) -> Void
+    let onTap: () -> Void
     
     init(
         product: ProductModel,
         isFavorite: Bool,
         cellType: CellType = .horizontal,
         onClose: @escaping (Int) -> Void,
-        onFavorite: @escaping (Int) -> Void
+        onFavorite: @escaping (Int) -> Void,
+        onTap: @escaping () -> Void = {}
     ) {
         self.product = product
         self.cellType = cellType
         self.isFavorite = isFavorite
         self.onClose = onClose
         self.onFavorite = onFavorite
+        self.onTap = onTap
     }
     
     var body: some View {
-        switch cellType {
-        case .horizontal:
-            horizontalContent
-        case .vertical:
-            verticalContent
+        ZStack {
+            switch cellType {
+            case .horizontal:
+                horizontalContent
+            case .vertical:
+                verticalContent
+            }
         }
+        .onTapGesture(perform: onTap)
     }
     
     private var verticalContent: some View {
