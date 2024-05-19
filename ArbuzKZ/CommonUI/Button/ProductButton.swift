@@ -18,22 +18,22 @@ struct ProductButton<Content: View>: View {
             var value: Font {
                 switch self {
                 case .small:
-                    return Font.caption
+                    return Font.caption2
                 case .medium:
-                    return Font.title2
+                    return Font.caption
                 case .large:
-                    return Font.title
+                    return Font.body
                 }
             }
             
             var size: CGFloat {
                 switch self {
                 case .small:
-                    return 32
+                    return 20
                 case .medium:
-                    return 48
+                    return 32
                 case .large:
-                    return 64
+                    return 48
                 }
             }
         }
@@ -70,7 +70,7 @@ struct ProductButton<Content: View>: View {
     }
     
     var body: some View {
-        HStack {
+        HStack(spacing: 0) {
             Button(action: {
                 leftButtonConfig.action()
             }, label: {
@@ -82,11 +82,11 @@ struct ProductButton<Content: View>: View {
             .disabled(!leftButtonConfig.isEnabled)
             .opacity(leftButtonConfig.isHidden ? 0 : 1)
             
-            Spacer(minLength: 4)
+            Spacer(minLength: 0)
             
             content()
             
-            Spacer(minLength: 4)
+            Spacer(minLength: 0)
             
             Button(action: {
                 rightButtonConfig.action()

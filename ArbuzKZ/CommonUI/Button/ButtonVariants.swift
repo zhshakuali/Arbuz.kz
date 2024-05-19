@@ -56,8 +56,8 @@ struct BasketButton: View {
                 )
             }
         )
-        .frame(width: 96, height: 36)
-        .padding(.horizontal, 12)
+        .frame(width: 64, height: 24)
+        .padding(.horizontal, 8)
         .background(Color.gray)
         .clipped()
         .clipShape(RoundedRectangle(cornerRadius: 18))
@@ -107,16 +107,16 @@ struct DefaultButton: View {
             content: {
                 ButtonContent(
                     alignment: valueHandler.currentValusMoreThanZero ? .center : .leading,
-                    title: .init(value: valueHandler.currentValusMoreThanZero ? valueHandler.formattedCurrentValue : product.formattedPrice, font: .caption, fontWeight: .bold, color: valueHandler.currentValusMoreThanZero ? .white : .primary),
+                    title: .init(value: valueHandler.currentValusMoreThanZero ? valueHandler.formattedCurrentValue : product.formattedPrice, font: .caption2, fontWeight: .bold, color: valueHandler.currentValusMoreThanZero ? .white : .primary),
                     subtitle: nil
                 )
             }
         )
-        .frame(height: 32)
-        .padding(.horizontal, 16)
+        .frame(height: 20)
+        .padding(.horizontal, 4)
         .background(valueHandler.currentValusMoreThanZero ? Color.green : Color.gray)
         .clipped()
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clipShape(RoundedRectangle(cornerRadius: 10))
         .onChange(of: currentValue) {
             valueHandler.currentValue = $0
         }

@@ -41,6 +41,7 @@ struct ButtonContent: View {
                     .fontWeight(title.fontWeight)
                     .foregroundColor(title.color)
                     .strikethrough(title.isStrikethrough)
+                    .minimumScaleFactor(0.5)
                 
                 if let subtitle {
                     Text(subtitle.value)
