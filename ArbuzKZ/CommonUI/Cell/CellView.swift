@@ -12,6 +12,7 @@ struct CellView: View {
     enum CellType {
         case base
         case cart
+        case wide
     }
     
     @ObservedObject var cartManager: CartManager
@@ -61,7 +62,7 @@ struct CellView: View {
                         }
                     )
                 }
-            case .cart:
+            case .cart, .wide:
                 HStack {
                     imageContent
                         .scaledToFit()
@@ -72,36 +73,59 @@ struct CellView: View {
                             
                             Spacer(minLength: 20)
                             
-                            Button(action: {
-                                onRemove()
-                            }, label: {
-                                Image(systemName: "xmark")
-                            })
-                            .accentColor(.gray)
+                            if type == .cart {
+                                Button(action: {
+                                    onRemove()
+                                }, label: {
+                                    Image(systemName: "xmark")
+                                })
+                                .accentColor(.gray)
+                            }
                         }
                         
                         Spacer(minLength: 0)
                         
                         HStack {
-                            BasketButton(
-                                product: product,
-                                currentValue: Binding(get: {
-                                    cartManager.count(for: product)
-                                }, set: { _ in
-                                    
-                                }),
-                                onIncrement: {
-                                    cartManager.incrementProduct(product)
-                                },
-                                onDecrement: {
-                                    cartManager.decrementProduct(product)
-                                    onUpdate()
-                                }
-                            )
+                            if type == .cart {
+                                BasketButton(
+                                    product: product,
+                                    currentValue: Binding(get: {
+                                        cartManager.count(for: product)
+                                    }, set: { _ in
+                                        
+                                    }),
+                                    onIncrement: {
+                                        cartManager.incrementProduct(product)
+                                    },
+                                    onDecrement: {
+                                        cartManager.decrementProduct(product)
+                                        onUpdate()
+                                    }
+                                )
+                            } else {
+                                DefaultButton(
+                                    product: product,
+                                    currentValue: Binding(get: {
+                                        cartManager.count(for: product)
+                                    }, set: { _ in
+                                        
+                                    }),
+                                    onIncrement: {
+                                        cartManager.incrementProduct(product)
+                                    },
+                                    onDecrement: {
+                                        cartManager.decrementProduct(product)
+                                        onUpdate()
+                                    }
+                                )
+                                .frame(width: 96)
+                            }
                             
                             Spacer(minLength: 0)
                             
-                            CellTotalPriceView(title: "6700 T")
+                            if type == .cart {
+                                CellTotalPriceView(title: "6700 T")
+                            }
                         }
                     }
                 }
@@ -112,6 +136,7 @@ struct CellView: View {
     var imageContent: some View {
         ZStack(alignment: .topTrailing) {
             CellImageView(image: product.image)
+                .aspectRatio(1.0, contentMode: .fit)
             Button {
                 favoriteManager.updateProductID(product.id)
             } label: {
