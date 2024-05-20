@@ -58,7 +58,7 @@ struct BasketButton: View {
         )
         .frame(width: 64, height: 24)
         .padding(.horizontal, 8)
-        .background(Color.gray)
+        .background(Color.gray.opacity(0.2))
         .clipped()
         .clipShape(RoundedRectangle(cornerRadius: 18))
         .onChange(of: currentValue) {
@@ -114,7 +114,7 @@ struct DefaultButton: View {
         )
         .frame(height: 20)
         .padding(.horizontal, 4)
-        .background(valueHandler.currentValusMoreThanZero ? Color.green : Color.gray)
+        .background(valueHandler.currentValusMoreThanZero ? Color.green : Color.gray.opacity(0.2))
         .clipped()
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .onChange(of: currentValue) {

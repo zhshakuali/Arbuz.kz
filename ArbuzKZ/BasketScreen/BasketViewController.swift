@@ -18,6 +18,12 @@ class BasketViewController: UIViewController {
         let controller = UIHostingController(rootView: EmptyBasketView())
         return controller
     }()
+    
+    lazy var cartButton: UIHostingController = {
+        let controller = UIHostingController(rootView: CartButton(cartManager: cartManager))
+        return controller
+    }()
+    
     lazy var collectionView = CollectionView()
     var dataSource: UICollectionViewDiffableDataSource<Section, ProductModel>?
     var items: [ProductModel] {
@@ -50,13 +56,34 @@ class BasketViewController: UIViewController {
     
     private func setLayout() {
         view.backgroundColor = .white
+        addCartButton()
         view.addSubview(collectionView)
-        collectionView.edgesToSuperview()
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: cartButton.view.topAnchor)
+        ])
         collectionView.rootVC = self
         collectionView.register(
             HostingCollectionViewCell.self,
             forCellWithReuseIdentifier: "Cell"
         )
+    }
+    
+    func addCartButton() {
+        addChild(cartButton)
+        cartButton.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(cartButton.view)
+        NSLayoutConstraint.activate([
+            cartButton.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            cartButton.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            cartButton.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            cartButton.view.heightAnchor.constraint(equalToConstant: 60)
+        ])
+        cartButton.didMove(toParent: self)
     }
     
     private func configureDataSource() {

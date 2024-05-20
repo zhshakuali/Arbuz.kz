@@ -39,99 +39,113 @@ struct CellView: View {
         self.onUpdate = onUpdate
     }
     
+    
+    private var totalPrice: Int {
+        return Int((cartManager.count(for: product) / product.measure.count) * product.price)
+//        (count / product.measure.count) * product.price
+     }
+ 
+    
     var body: some View {
-        ZStack {
-            switch type {
-            case .base:
-                VStack {
-                    imageContent
-                    productInfo
-                    DefaultButton(
-                        product: product,
-                        currentValue: Binding(get: {
-                            cartManager.count(for: product)
-                        }, set: { _ in
-                            
-                        }),
-                        onIncrement: {
-                            cartManager.incrementProduct(product)
-                        },
-                        onDecrement: {
-                            cartManager.decrementProduct(product)
-                            onUpdate()
-                        }
-                    )
-                }
-            case .cart, .wide:
-                HStack {
-                    imageContent
-                        .scaledToFit()
-                    
+            ZStack {
+                switch type {
+                case .base:
                     VStack {
-                        HStack(alignment: .top) {
-                            productInfo
-                            
-                            Spacer(minLength: 20)
-                            
-                            if type == .cart {
-                                Button(action: {
-                                    onRemove()
-                                }, label: {
-                                    Image(systemName: "xmark")
-                                })
-                                .accentColor(.gray)
+                        imageContent
+                        productInfo
+                        DefaultButton(
+                            product: product,
+                            currentValue: Binding(get: {
+                                cartManager.count(for: product)
+                            }, set: { _ in
+                                
+                            }),
+                            onIncrement: {
+                                cartManager.incrementProduct(product)
+                            },
+                            onDecrement: {
+                                cartManager.decrementProduct(product)
+                                onUpdate()
                             }
-                        }
+                        )
+                    }
+                case .cart, .wide:
+                    HStack {
+                        imageContent
+                            .scaledToFit()
                         
-                        Spacer(minLength: 0)
-                        
-                        HStack {
-                            if type == .cart {
-                                BasketButton(
-                                    product: product,
-                                    currentValue: Binding(get: {
-                                        cartManager.count(for: product)
-                                    }, set: { _ in
-                                        
-                                    }),
-                                    onIncrement: {
-                                        cartManager.incrementProduct(product)
-                                    },
-                                    onDecrement: {
-                                        cartManager.decrementProduct(product)
-                                        onUpdate()
-                                    }
-                                )
-                            } else {
-                                DefaultButton(
-                                    product: product,
-                                    currentValue: Binding(get: {
-                                        cartManager.count(for: product)
-                                    }, set: { _ in
-                                        
-                                    }),
-                                    onIncrement: {
-                                        cartManager.incrementProduct(product)
-                                    },
-                                    onDecrement: {
-                                        cartManager.decrementProduct(product)
-                                        onUpdate()
-                                    }
-                                )
-                                .frame(width: 96)
+                        VStack {
+                            HStack(alignment: .top) {
+                                productInfo
+                                
+                                Spacer(minLength: 20)
+                                
+                                if type == .cart {
+                                    Button(action: {
+                                        onRemove()
+                                    }, label: {
+                                        Image(systemName: "xmark")
+                                    })
+                                    .accentColor(.gray)
+                                }
                             }
                             
                             Spacer(minLength: 0)
                             
-                            if type == .cart {
-                                CellTotalPriceView(title: "6700 T")
+                            HStack {
+                                if type == .cart {
+                                    BasketButton(
+                                        product: product,
+                                        currentValue: Binding(get: {
+                                            cartManager.count(for: product)
+                                        }, set: { _ in
+                                            
+                                        }),
+                                        onIncrement: {
+                                            cartManager.incrementProduct(product)
+                                            onUpdate()
+                                        },
+                                        onDecrement: {
+                                            cartManager.decrementProduct(product)
+                                            onUpdate()
+                                        }
+                                    )
+                                    .onChange(of: cartManager.count(for: product)) { _ in
+                                        onUpdate()
+                                    }
+                                } else {
+                                    DefaultButton(
+                                        product: product,
+                                        currentValue: Binding(get: {
+                                            cartManager.count(for: product)
+                                        }, set: { _ in
+                                            
+                                        }),
+                                        onIncrement: {
+                                            cartManager.incrementProduct(product)
+                                        },
+                                        onDecrement: {
+                                            cartManager.decrementProduct(product)
+                                            onUpdate()
+                                        }
+                                    )
+                                    .frame(width: 96)
+                                }
+                                
+                                Spacer(minLength: 0)
+                                
+                                if type == .cart {
+                                    CellTotalPriceView(totalPrice: totalPrice)
+                                }
+                               
                             }
                         }
                     }
                 }
             }
         }
-    }
+    
+    
     
     var imageContent: some View {
         ZStack(alignment: .topTrailing) {
