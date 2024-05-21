@@ -20,7 +20,7 @@ class BasketViewController: UIViewController {
     }()
     
     lazy var bannerView: UIHostingController = {
-        let controller = UIHostingController(rootView: BannerView(cartManager: cartManager, onShown: { isPresented in
+        let controller = UIHostingController(rootView: BannerView(viewModel: viewModel, onShown: { isPresented in
             if isPresented {
                 self.collectionViewTopAnchor?.constant = 24
             } else {
@@ -44,16 +44,16 @@ class BasketViewController: UIViewController {
     var collectionViewTopAnchor: NSLayoutConstraint?
     lazy var collectionView = CollectionView()
     var dataSource: UICollectionViewDiffableDataSource<Section, ProductModel>?
-    var items: [ProductModel] {
-        cartManager.getProducts()
-    }
+    
     
     let cartManager: CartManager
     let favoriteManager: FavoriteProductsManager
+    let viewModel: BasketViewModel
     
     init(cartManager: CartManager, favoriteManager: FavoriteProductsManager) {
         self.cartManager = cartManager
         self.favoriteManager = favoriteManager
+        self.viewModel = BasketViewModel(cartManager: cartManager)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -127,12 +127,12 @@ class BasketViewController: UIViewController {
             
             cell.embed(
                 in: self,
-                withContent: self.items[indexPath.row],
+                withContent: self.viewModel.items[indexPath.row],
                 cartManager: cartManager,
                 favoriteManager: favoriteManager,
                 onClose: {
                     if let indexPath = self.collectionView.indexPath(for: cell) {
-                        self.removeProduct(self.items[indexPath.row])
+                        self.removeProduct(self.viewModel.items[indexPath.row])
                     }
                 },
                 onFavorite: { id in
@@ -142,7 +142,7 @@ class BasketViewController: UIViewController {
                 },
                 onTap: {
                     if let indexPath = self.collectionView.indexPath(for: cell) {
-                        self.showProductDetailView(self.items[indexPath.row])
+                        self.showProductDetailView(self.viewModel.items[indexPath.row])
                     }
                 },
                 onUpdate: {
@@ -159,7 +159,7 @@ class BasketViewController: UIViewController {
     private func applySnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, ProductModel>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(items)
+        snapshot.appendItems(viewModel.items)
         dataSource?.apply(snapshot)
         addEmptyViewIfNeeded()
     }
@@ -174,7 +174,7 @@ class BasketViewController: UIViewController {
     }
     
     private func addEmptyViewIfNeeded() {
-        if items.isEmpty {
+        if viewModel.items.isEmpty {
             addChild(emptyView)
             emptyView.view.frame = view.bounds
             view.addSubview(emptyView.view)
