@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F3C94FC2BFCF0650016464C /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C94FB2BFCF0650016464C /* BannerView.swift */; };
+		9F3C94FE2BFCFB8B0016464C /* BasketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C94FD2BFCFB8B0016464C /* BasketViewModel.swift */; };
 		9F66EEE32BFB3F6A009BF5CA /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F66EEE22BFB3F6A009BF5CA /* CartButton.swift */; };
 		9F8554462BFCE82D002BE5C5 /* CheckoutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8554452BFCE82D002BE5C5 /* CheckoutScreen.swift */; };
 		9FDCCFE12BF5F8DD00DA4EF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDCCFE02BF5F8DD00DA4EF7 /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		9F3C94FB2BFCF0650016464C /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		9F3C94FD2BFCFB8B0016464C /* BasketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewModel.swift; sourceTree = "<group>"; };
 		9F66EEE22BFB3F6A009BF5CA /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
 		9F8554452BFCE82D002BE5C5 /* CheckoutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutScreen.swift; sourceTree = "<group>"; };
 		9FDCCFDD2BF5F8DD00DA4EF7 /* ArbuzKZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArbuzKZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 				D5A44F132BF8ED1F000C4E1D /* HostingCollectionViewCell.swift */,
 				9F8554452BFCE82D002BE5C5 /* CheckoutScreen.swift */,
 				9F3C94FB2BFCF0650016464C /* BannerView.swift */,
+				9F3C94FD2BFCFB8B0016464C /* BasketViewModel.swift */,
 			);
 			path = BasketScreen;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				D5B49D6D2BF8FD5D00E36233 /* CellView.swift in Sources */,
 				D5A3423E2BF7927300E3D2F2 /* Task+sleep.swift in Sources */,
 				D562A2922BF8670900341DF8 /* ProductDetailView.swift in Sources */,
+				9F3C94FE2BFCFB8B0016464C /* BasketViewModel.swift in Sources */,
 				D5E0C5942BF90E9D00EF88BD /* CartManager.swift in Sources */,
 				D59185F42BF89E0D00F1904E /* ProductButton.swift in Sources */,
 				D59185FC2BF8B8CA00F1904E /* ButtonVariants.swift in Sources */,

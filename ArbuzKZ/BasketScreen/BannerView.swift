@@ -9,12 +9,12 @@ import SwiftUI
 
 struct BannerView: View {
     @State var isPresented = false
-    @ObservedObject var cartManager: CartManager
+    @ObservedObject var viewModel: BasketViewModel
     let onShown: (Bool) -> Void
     var body: some View {
         VStack {
             if isPresented {
-                Text("До бесплатной доставки: \(8000 - cartManager.cartPrice, specifier: "%.2f") Т")
+                Text(viewModel.freeDelieveryText)
                     .font(.caption)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 4)
@@ -23,9 +23,9 @@ struct BannerView: View {
             }
         }
         .onAppear(perform: {
-            showBannerIfNeeded(cartManager.cartPrice)
+            showBannerIfNeeded(viewModel.totalPrice)
         })
-        .onChange(of: cartManager.cartPrice) { newValue in
+        .onChange(of: viewModel.totalPrice) { newValue in
             showBannerIfNeeded(newValue)
         }
         .onChange(of: isPresented) { newValue in
@@ -42,5 +42,5 @@ struct BannerView: View {
 }
 
 #Preview {
-    BannerView(cartManager: CartManager(), onShown: { _ in })
+    BannerView(viewModel: BasketViewModel(cartManager: CartManager()), onShown: { _ in })
 }
