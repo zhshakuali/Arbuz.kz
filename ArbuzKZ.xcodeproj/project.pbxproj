@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F66EEE32BFB3F6A009BF5CA /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F66EEE22BFB3F6A009BF5CA /* CartButton.swift */; };
+		9F8554462BFCE82D002BE5C5 /* CheckoutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8554452BFCE82D002BE5C5 /* CheckoutScreen.swift */; };
 		9FDCCFE12BF5F8DD00DA4EF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDCCFE02BF5F8DD00DA4EF7 /* AppDelegate.swift */; };
 		9FDCCFE32BF5F8DD00DA4EF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDCCFE22BF5F8DD00DA4EF7 /* SceneDelegate.swift */; };
 		9FDCCFEA2BF5F8DF00DA4EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FDCCFE92BF5F8DF00DA4EF7 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		9F66EEE22BFB3F6A009BF5CA /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
+		9F8554452BFCE82D002BE5C5 /* CheckoutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutScreen.swift; sourceTree = "<group>"; };
 		9FDCCFDD2BF5F8DD00DA4EF7 /* ArbuzKZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArbuzKZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FDCCFE02BF5F8DD00DA4EF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FDCCFE22BF5F8DD00DA4EF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F66EEE42BFB9BD9009BF5CA /* DeliveryView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DeliveryView;
+			sourceTree = "<group>";
+		};
 		9FDCCFD42BF5F8DD00DA4EF7 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +117,7 @@
 		9FDCCFDF2BF5F8DD00DA4EF7 /* ArbuzKZ */ = {
 			isa = PBXGroup;
 			children = (
+				9F66EEE42BFB9BD9009BF5CA /* DeliveryView */,
 				D59185F02BF8860F00F1904E /* MainScreen */,
 				D50D16BF2BF868D400576777 /* BasketScreen */,
 				D562A2902BF866FA00341DF8 /* ProductDetail */,
@@ -143,6 +153,7 @@
 				D50D16C02BF868E900576777 /* BasketViewController.swift */,
 				D50D16C52BF880BD00576777 /* EmptyBasketView.swift */,
 				D5A44F132BF8ED1F000C4E1D /* HostingCollectionViewCell.swift */,
+				9F8554452BFCE82D002BE5C5 /* CheckoutScreen.swift */,
 			);
 			path = BasketScreen;
 			sourceTree = "<group>";
@@ -355,6 +366,7 @@
 				9FDCCFE12BF5F8DD00DA4EF7 /* AppDelegate.swift in Sources */,
 				9FDCCFE32BF5F8DD00DA4EF7 /* SceneDelegate.swift in Sources */,
 				D59185FA2BF8B3F700F1904E /* ButtonContent.swift in Sources */,
+				9F8554462BFCE82D002BE5C5 /* CheckoutScreen.swift in Sources */,
 				D50D16C12BF868E900576777 /* BasketViewController.swift in Sources */,
 				D5A342492BF792C200E3D2F2 /* ProductsService.swift in Sources */,
 			);

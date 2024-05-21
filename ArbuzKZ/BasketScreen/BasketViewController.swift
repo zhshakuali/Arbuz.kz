@@ -20,7 +20,10 @@ class BasketViewController: UIViewController {
     }()
     
     lazy var cartButton: UIHostingController = {
-        let controller = UIHostingController(rootView: CartButton(cartManager: cartManager))
+        let controller = UIHostingController(rootView: CartButton(cartManager: cartManager, action: {
+            let vc = UIHostingController(rootView: CheckoutScreen())
+            self.present(vc, animated: true)
+        }))
         return controller
     }()
     
@@ -78,7 +81,7 @@ class BasketViewController: UIViewController {
         cartButton.view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(cartButton.view)
         NSLayoutConstraint.activate([
-            cartButton.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            cartButton.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -12),
             cartButton.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             cartButton.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
             cartButton.view.heightAnchor.constraint(equalToConstant: 60)
