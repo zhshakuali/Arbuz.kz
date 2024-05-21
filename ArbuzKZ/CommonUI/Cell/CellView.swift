@@ -42,7 +42,6 @@ struct CellView: View {
     
     private var totalPrice: Int {
         return Int((cartManager.count(for: product) / product.measure.count) * product.price)
-//        (count / product.measure.count) * product.price
      }
  
     
