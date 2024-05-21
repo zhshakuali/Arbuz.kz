@@ -19,6 +19,20 @@ class BasketViewController: UIViewController {
         return controller
     }()
     
+    lazy var bannerView: UIHostingController = {
+        let controller = UIHostingController(rootView: BannerView(cartManager: cartManager, onShown: { isPresented in
+            if isPresented {
+                self.collectionViewTopAnchor?.constant = 24
+            } else {
+                self.collectionViewTopAnchor?.constant = 0
+            }
+            UIView.animate(withDuration: 0.5) {
+                self.view.layoutIfNeeded()
+            }
+        }))
+        return controller
+    }()
+    
     lazy var cartButton: UIHostingController = {
         let controller = UIHostingController(rootView: CartButton(cartManager: cartManager, action: {
             let vc = UIHostingController(rootView: CheckoutScreen())
@@ -27,6 +41,7 @@ class BasketViewController: UIViewController {
         return controller
     }()
     
+    var collectionViewTopAnchor: NSLayoutConstraint?
     lazy var collectionView = CollectionView()
     var dataSource: UICollectionViewDiffableDataSource<Section, ProductModel>?
     var items: [ProductModel] {
@@ -61,19 +76,34 @@ class BasketViewController: UIViewController {
         view.backgroundColor = .white
         addCartButton()
         view.addSubview(collectionView)
+        addBannerView()
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: cartButton.view.topAnchor)
         ])
+        collectionViewTopAnchor = collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        collectionViewTopAnchor?.isActive = true
         collectionView.rootVC = self
         collectionView.register(
             HostingCollectionViewCell.self,
             forCellWithReuseIdentifier: "Cell"
         )
+    }
+    
+    func addBannerView() {
+        addChild(bannerView)
+        bannerView.view.backgroundColor = .clear
+        bannerView.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView.view)
+        NSLayoutConstraint.activate([
+            bannerView.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            bannerView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            bannerView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
+        ])
+        bannerView.didMove(toParent: self)
     }
     
     func addCartButton() {
