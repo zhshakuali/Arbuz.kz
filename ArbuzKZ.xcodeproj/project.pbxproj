@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F3C94FC2BFCF0650016464C /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C94FB2BFCF0650016464C /* BannerView.swift */; };
 		9F66EEE32BFB3F6A009BF5CA /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F66EEE22BFB3F6A009BF5CA /* CartButton.swift */; };
 		9F8554462BFCE82D002BE5C5 /* CheckoutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8554452BFCE82D002BE5C5 /* CheckoutScreen.swift */; };
 		9FDCCFE12BF5F8DD00DA4EF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDCCFE02BF5F8DD00DA4EF7 /* AppDelegate.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F3C94FB2BFCF0650016464C /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		9F66EEE22BFB3F6A009BF5CA /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
 		9F8554452BFCE82D002BE5C5 /* CheckoutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutScreen.swift; sourceTree = "<group>"; };
 		9FDCCFDD2BF5F8DD00DA4EF7 /* ArbuzKZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArbuzKZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +156,7 @@
 				D50D16C52BF880BD00576777 /* EmptyBasketView.swift */,
 				D5A44F132BF8ED1F000C4E1D /* HostingCollectionViewCell.swift */,
 				9F8554452BFCE82D002BE5C5 /* CheckoutScreen.swift */,
+				9F3C94FB2BFCF0650016464C /* BannerView.swift */,
 			);
 			path = BasketScreen;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				9F66EEE32BFB3F6A009BF5CA /* CartButton.swift in Sources */,
 				D5A342432BF7929700E3D2F2 /* MockedNetworkService.swift in Sources */,
 				D5A342472BF792B400E3D2F2 /* NetworkServiceProtocol.swift in Sources */,
+				9F3C94FC2BFCF0650016464C /* BannerView.swift in Sources */,
 				D59185F22BF8861C00F1904E /* MainScreen.swift in Sources */,
 				D5A342452BF792A800E3D2F2 /* NetworkService.swift in Sources */,
 				D5B401D02BF9C3BD0040841E /* FavoriteProductsManager.swift in Sources */,
